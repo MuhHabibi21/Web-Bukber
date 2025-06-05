@@ -1,0 +1,147 @@
+/* Animations and special effects for Bukber */
+.parallax-bg {
+  background-attachment: fixed;
+  transform: translateZ(0);
+}
+
+.parallax-slow {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.parallax-slow:hover {
+  transform: translateY(-8px);
+}
+
+.fade-in {
+  animation: fadeInAnimation 1.2s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.visible {
+  opacity: 1;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(40px);
+}
+
+.animate-on-scroll.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scrolling for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced shadows */
+.enhanced-shadow {
+  box-shadow: 0 15px 40px rgba(17, 97, 255, 0.35);
+}
+
+/* Pulsating animation for interactive elements */
+.pulse-btn {
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(5, 51, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(128, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(128, 0, 0, 0);
+  }
+}
+
+/* Card hover effects */
+.hover-card {
+  transition: all 0.4s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(10, 112, 255, 0.4);
+}
+
+/* Custom styles for better responsiveness */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Font families */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Styling for rundown events */
+#rundownContainer .rounded-xl {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Penekanan waktu acara (mengubah warna dan tebalnya teks untuk waktu) */
+#rundownContainer .text-lg {
+  color: #1e293b; /* Warna lebih kontras untuk teks */
+  font-weight: 600;
+}
+
+/* Tambahkan highlight atau underline pada jam */
+#rundownContainer .text-4xl {
+  color: #e0a93b; /* Ganti warna ini dengan warna kuning emas atau yang lebih tegas */
+  font-weight: 700;
+  font-size: 1.5rem; /* Sesuaikan ukuran font agar lebih besar */
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Styling pada countdown yang tampil */
+#days, #hours, #minutes, #seconds {
+  font-size: 2.5rem; /* Memperbesar ukuran angka waktu */
+  color: #4683eb; /* Warna biru untuk menonjolkan */
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Menambahkan highlight untuk waktu yang sedang berlangsung */
+.highlight-current {
+  background-color: #e4b72b; /* Warna latar belakang yang menonjol */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.7); /* Efek bayangan untuk lebih terlihat */
+}
+
+/* Hover dan active state untuk waktu rundown */
+#rundownContainer .rounded-xl:hover {
+  background-color: #fef2f2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}

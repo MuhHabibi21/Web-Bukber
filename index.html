@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Buka Bersama Bulan Ramadhan - SMKN 21 Jakarta</title>
+    <meta name="description" content="Undangan AcaraBuka Bersama Bulan Ramadhan SMKN 21 Jakarta pada tanggal 20 Maret 2025">
+    <meta name="author" content="SMKN 21 Jakarta">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="min-h-screen bg-[#fff8f8] text-gray-900 relative overflow-x-hidden">
+        <!-- Background batik pattern -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('/batik-pattern.svg')] opacity-5 parallax-bg z-0"></div>
+        
+        <!-- Music player button -->
+        <button id="musicBtn" class="fixed top-6 right-6 z-50 p-3 rounded-full bg-[#4683eb] shadow-lg hover:bg-[#4683eb] transition-all pulse-btn" aria-label="Toggle musik">
+            <svg id="musicIcon" class="text-white w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9 4h10a3 3 0 003-3V7a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12l4-2v4l-4-2z"></path>
+            </svg>
+        </button>
+
+        <!-- Audio element -->
+        <audio id="backgroundMusic" preload="auto">
+            <source src="rmdn.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung audio HTML5.
+        </audio>
+
+        <!-- Toast notification -->
+        <div id="toast" class="fixed top-4 right-4 z-50 bg-white border border-gray-200 rounded-lg shadow-lg p-4 transform translate-x-full transition-transform duration-300">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <div id="toastTitle" class="text-sm font-medium text-gray-900"></div>
+                    <div id="toastDescription" class="text-sm text-gray-500"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RSVP Form Page -->
+        <div id="rsvpPage" class="min-h-screen flex flex-col items-center justify-center p-4 relative z-10">
+            <div class="animate-on-scroll parallax-slow">
+                <div class="font-bold text-4xl md:text-5xl lg:text-6xl mb-8 text-center text-[#4683eb] drop-shadow-md">
+                    Undangan Bukber
+                    <span class="block mt-2">SMKN 21 JKT</span>
+                </div>
+                
+                <div class="w-full max-w-md border-0 rounded-2xl enhanced-shadow backdrop-blur-sm bg-white/90 hover-card p-6">
+                    <form id="rsvpForm" class="space-y-6">
+                        <div class="text-center mb-6">
+                            <h2 class="text-2xl font-bold text-[#4683eb]">Reservasi</h2>
+                            <p class="text-gray-600">Tolong isi data kehadiran dulu yah teman teman</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="space-y-2">
+                                <label for="name" class="text-[#4683eb] text-sm font-medium">Nama</label>
+                                <input id="name" type="text" placeholder="Masukkan namamu" class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:border-[#fff8f8] focus:ring-1 focus:ring-[#fff8f8] outline-none" required>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <label for="attendees" class="text-[#4683eb] text-sm font-medium">Jumlah Tamu yang hadir</label>
+                                <input id="attendees" type="number" min="1" placeholder="Masukkan jumlah yang hadir" class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:border-[#fff8f8] focus:ring-1 focus:ring-[#fff8f8] outline-none" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full rounded-xl py-6 text-lg bg-[#000000 hover:bg-[#4683eb] text-black shadow-[0_4px_12px_rgba(128,0,0,0.3)] transition-all duration-300 hover:shadow-[0_6px_16px_rgba(128,0,0,0.4)]">
+                            Klik untuk Konfirmasi Kehadiran
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Invitation Page -->
+        <div id="invitationPage" class="container mx-auto px-4 py-10 relative z-10 hidden">
+            <header class="text-center mb-16 animate-on-scroll">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#4683eb0]">
+                    Acara Buka Puasa Bersama 
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700">SMKN 21 Jakarta</p>
+                <div class="w-24 h-1 bg-[#4683eb] mx-auto mt-6"></div>
+            </header>
+
+            <!-- Countdown Timer -->
+            <section class="mb-20 animate-on-scroll">
+                <div class="rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(128,0,0,0.35)] bg-gradient-to-br from-[#4683eb] to-[#5a0000] p-1 hover-card">
+                    <div class="rounded-xl bg-white/95 p-8">
+                        <h2 class="text-2xl font-bold text-center text-[#4683eb] mb-6">Acara Akan Dimulai</h2>
+                        <div class="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+                            <div class="text-center">
+                                <div id="days" class="text-4xl font-bold text-[#4683eb]">0</div>
+                                <div class="text-gray-600">Hari</div>
+                            </div>
+                            <div class="text-center">
+                                <div id="hours" class="text-4xl font-bold text-[#4683eb]">0</div>
+                                <div class="text-gray-600">Jam</div>
+                            </div>
+                            <div class="text-center">
+                                <div id="minutes" class="text-4xl font-bold text-[#4683eb]">0</div>
+                                <div class="text-gray-600">Menit</div>
+                            </div>
+                            <div class="text-center">
+                                <div id="seconds" class="text-4xl font-bold text-[#4683eb]">0</div>
+                                <div class="text-gray-600">Detik</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Details -->
+            <section class="mb-20 grid md:grid-cols-2 gap-8">
+                <div class="animate-on-scroll">
+                    <div class="h-full border-0 rounded-2xl overflow-hidden enhanced-shadow backdrop-blur-sm bg-white/90 hover-card">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold text-[#4683eb] mb-6">Informasi Acara</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 mr-4 text-[#4683eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium">Tanggal</div>
+                                        <div class="text-lg">20 Maret 2025</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 mr-4 text-[#4683eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium">Waktu</div>
+                                        <div class="text-lg">16:00 WIB</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 mr-4 text-[#4683eb] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium">Lokasi</div>
+                                        <div class="text-lg">Jl. Siaga No.9, RT.9/RW.6, Kb. Kosong, Kec. Kemayoran, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10630</div>
+                                        <button id="mapBtn" class="mt-2 border border-[#4683eb] text-[#4683eb] hover:bg-[#fff8f8] hover:text-white transition-colors rounded-xl px-4 py-2">
+                                            Buka di Google Maps
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 mr-4 text-[#4683eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium">Kontak Person</div>
+                                        <div class="text-lg">+62 813-1485-5165</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-6 h-6 mr-4 text-[#4683eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium">Kehadiran</div>
+                                        <div id="attendanceInfo" class="text-lg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <div class="h-full border-0 rounded-2xl overflow-hidden enhanced-shadow backdrop-blur-sm bg-white/90 hover-card">
+                        <div class="bg-[#4683eb] p-6">
+                            <h2 class="text-2xl font-bold text-white mb-2">Lokasi</h2>
+                            <p class="text-white/80">SMKN 21 Jakarta</p>
+                        </div>
+                        <div class="w-full h-64">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7292631235444!2d106.84712557582348!3d-6.166319193827786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5a964b52413%3A0x2c67b0ef3bf56c01!2sJl.%20Siaga%20No.9%2C%20RT.9%2FRW.6%2C%20Kb.%20Kosong%2C%20Kec.%20Kemayoran%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2010630!5e0!3m2!1sid!2sid!4v1715701544555!5m2!1sid!2sid"
+                                width="100%" 
+                                height="100%" 
+                                style="border: 0;" 
+                                allowfullscreen 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rundown -->
+            <section class="mb-20 animate-on-scroll">
+                <div class="border-0 rounded-2xl overflow-hidden enhanced-shadow backdrop-blur-sm bg-blue/90 hover-card">
+                    <div class="p-6 overflow-x-auto">
+                        <h2 class="text-2xl font-bold text-[#4683eb] mb-6 flex items-center">
+                            🗓 Rundown Acara Kegiatan
+                        </h2>
+                        <div id="rundownContainer" class="space-y-4">
+                            <!-- Rundown items will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="mb-20 animate-on-scroll">
+                <h2 class="text-2xl font-bold text-center text-[#4683eb] mb-8">Galeri Dokumentasi</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rounded-2xl overflow-hidden enhanced-shadow transform transition-transform hover:scale-[1.05] hover:shadow-[0_20px_50px_rgba(128,0,0,0.4)]">
+                        <div class="w-full h-64">
+                            <img src="foto1.jpg" alt="Gallery image 1" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden enhanced-shadow transform transition-transform hover:scale-[1.05] hover:shadow-[0_20px_50px_rgba(128,0,0,0.4)]">
+                        <div class="w-full h-64">
+                            <img src="foto2.jpg" alt="Gallery image 2" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden enhanced-shadow transform transition-transform hover:scale-[1.05] hover:shadow-[0_20px_50px_rgba(128,0,0,0.4)]">
+                        <div class="w-full h-64">
+                            <img src="foto3.jpg" alt="Gallery image 3" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden enhanced-shadow transform transition-transform hover:scale-[1.05] hover:shadow-[0_20px_50px_rgba(128,0,0,0.4)]">
+                        <div class="w-full h-64">
+                            <img src="foto4.jpg" alt="Gallery image 4" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center py-8 animate-on-scroll">
+                <div class="w-16 h-1 bg-[#fff8f8] mx-auto mb-6"></div>
+                <p class="text-gray-600">Kami menantikan kehadiranmu</p>
+                <h2 class="text-2xl font-bold text-[#fff8f8] mt-2">Acara Buka Puasa Bersama</h2>
+                <p class="mt-6 text-gray-500">© 2025 SMKN 21 Jakarta</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
